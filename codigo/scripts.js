@@ -67,3 +67,8 @@ function resetar() {
     card.style.order = aleatorio;
   });
 })();
+
+cards.forEach(card => card.addEventListener('click', flip));
+function reset()  {
+document.location.reload(true);
+}
