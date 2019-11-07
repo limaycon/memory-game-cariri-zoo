@@ -55,3 +55,15 @@ function vira() {
     resetar();
   }, 1500);
 }
+
+function resetar() {
+  [virada, bloqueio]= [false, false];
+  [carta1, carta2] = [null, null];
+}
+
+(function misturar() {
+  cards.forEach(card => {
+    let aleatorio = Math.floor(Math.random() * 12);
+    card.style.order = aleatorio;
+  });
+})();
