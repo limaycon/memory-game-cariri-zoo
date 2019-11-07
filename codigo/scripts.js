@@ -27,3 +27,31 @@ function flip() {
 
   achou();
 }
+function achou() {
+ if(carta1.dataset.framework === carta2.dataset.framework){
+    
+    travacarta();} else{
+    vira();}
+
+}
+
+function travacarta() {
+  carta1.removeEventListener('click', flip);
+  carta2.removeEventListener('click', flip);
+  
+  	acertos++;
+	document.getElementById("acertos").innerHTML = acertos;
+
+  resetar();
+}
+
+function vira() {
+  bloqueio = true;
+
+  setTimeout(() => {
+    carta1.classList.remove('flip');
+    carta2.classList.remove('flip');
+
+    resetar();
+  }, 1500);
+}
