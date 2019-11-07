@@ -1,20 +1,29 @@
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-}
+const cards = document.querySelectorAll('.cartas');
 
-body {
-  height: 100vh;
-  display: flex;
-  background: #FACC2E;
-}
+let virada = false;
+let bloqueio = false;
+let carta1, carta2;
+tentativas = 0;
+acertos = 0;
 
-.cartoes {
-  width: 640px;
-  height: 640px;
-  margin: auto;
-  display: flex;
-  flex-wrap: wrap;
-  perspective: 1000px;
+function flip() {
+  if (bloqueio) return;
+  if (this === carta1) return;
+
+  this.classList.add('flip');
+
+  if (!virada) {
+    // first click
+    virada = true;
+    carta1 = this;
+	tentativas++;
+	document.getElementById("tentativas").innerHTML = tentativas;
+	
+    return;
+  }
+
+  // second click
+  carta2 = this;
+
+  achou();
 }
